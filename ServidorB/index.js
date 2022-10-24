@@ -25,11 +25,11 @@ app.listen(port, () => { console.log("Porta: ", port) })
 app.use(express.json())
 
 
-app.get('/', (req, res) => {
+app.get('/listar', (req, res) => {
     res.json(usuarios)
 })
 
-app.post('/', (req, res) => {
+app.post('/cadastrar', (req, res) => {
     let usuario = {}
 
     usuario.id = pegarId()
@@ -40,7 +40,7 @@ app.post('/', (req, res) => {
     res.json(usuario)
 })
 
-app.put('/login', (req, res) => {
+app.put('/logar', (req, res) => {
     const usuario = req.body
     if(valida(usuario.username, usuario.password)){
         res.send("Login concluído!")
